@@ -1,1 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HandyFly — Temukan Perjalananmu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="#beranda"><span class="brand-icon">✈</span> HandyFly</a>
+    <nav>
+      <a href="#beranda">Beranda</a>
+      <a href="#pemesanan">Pesan Tiket</a>
+      <a href="#promo">Promo</a>
+      <a href="#rekomendasi">Rekomendasi</a>
+    </nav>
+    <div class="nav-actions">
+      <span id="userLabel" class="user-label"></span>
+      <button id="loginOpen" class="btn btn-outline">Masuk</button>
+      <button id="registerOpen" class="btn btn-primary">Daftar</button>
+      <button id="logoutBtn" class="btn btn-outline hidden">Keluar</button>
+    </div>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Buka menu">☰</button>
+  </header>
 
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-copy">
+        <span class="eyebrow">✦ PERJALANAN JADI LEBIH MUDAH</span>
+        <h1>Jalan-jalan lebih mudah,<br><span>semua ada di HandyFly.</span></h1>
+        <p>Pesan tiket pesawat, kereta, bus, dan hotel dari satu tempat. Pilih perjalanan yang cocok dengan kebutuhanmu.</p>
+        <a href="#pemesanan" class="btn btn-light">Mulai pesan <span>→</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+        <div class="plane">✈</div>
+        <div class="hero-ticket"><small>HANDYFLY TRAVEL</small><strong>Waktunya pergi!</strong><span>✦ ✦ ✦</span></div>
+      </div>
+    </section>
+
+    <section class="booking-wrap section" id="pemesanan">
+      <div class="section-heading">
+        <div><span class="eyebrow blue">PESAN PERJALANAN</span><h2>Mau pergi ke mana?</h2><p>Pilih transportasi atau penginapan, lalu isi detail perjalananmu.</p></div>
+        <span class="secure-note">● Pemesanan demo</span>
+      </div>
+      <div class="transport-tabs" role="tablist">
+        <button class="transport-tab active" data-type="Pesawat">✈ <span>Pesawat</span></button>
+        <button class="transport-tab" data-type="Kereta">🚆 <span>Kereta</span></button>
+        <button class="transport-tab" data-type="Bus">🚌 <span>Bus</span></button>
+        <button class="transport-tab" data-type="Hotel">🏨 <span>Hotel</span></button>
+      </div>
+      <form id="ticketForm">
+        <div class="form-grid">
+          <label id="fromLabel">Dari
+            <input id="fromCity" placeholder="Kota asal" required>
+          </label>
+          <button type="button" id="swapBtn" class="swap-btn" title="Tukar kota">⇄</button>
+          <label id="toLabel">Ke
+            <input id="toCity" placeholder="Kota tujuan" required>
+          </label>
+          <label id="dateLabel">Tanggal berangkat
+            <input id="travelDate" type="date" required>
+          </label>
+          <label>Penumpang / Tamu
+            <select id="travellers"><option value="1">1 orang</option><option value="2">2 orang</option><option value="3">3 orang</option><option value="4">4 orang</option><option value="5">5 orang</option></select>
+          </label>
+        </div>
+        <div class="form-bottom">
+          <label class="class-label">Kelas tiket
+            <select id="ticketClass">
+              <option value="Basic">Basic</option><option value="Medium" selected>Medium</option><option value="Elite">Elite</option><option value="VIP">VIP</option>
+            </select>
+          </label>
+          <label class="promo-label">Kode promo (opsional)
+            <input id="promoCode" placeholder="Contoh: HEMAT10">
+          </label>
+          <button type="submit" class="btn btn-primary search-btn">Cari pilihan <span>→</span></button>
+        </div>
+      </form>
+      <div id="searchResults" class="results hidden" aria-live="polite"></div>
+    </section>
+
+    <section class="section" id="promo">
+      <div class="section-heading"><div><span class="eyebrow blue">PENAWARAN PILIHAN</span><h2>Promo untuk perjalananmu</h2><p>Contoh promo di halaman demo HandyFly.</p></div><a href="#pemesanan" class="text-link">Pesan sekarang →</a></div>
+      <div class="promo-grid">
+        <article class="promo-card promo-blue"><div><span class="promo-tag">PESAWAT</span><h3>Terbang lebih hemat</h3><p>Diskon simulasi hingga 15% untuk rute pilihan.</p><a href="#pemesanan" data-promo="HEMAT15">Pakai HEMAT15 →</a></div><div class="promo-emoji">✈</div></article>
+        <article class="promo-card promo-peach"><div><span class="promo-tag">KERETA & BUS</span><h3>Jelajah tanpa ribet</h3><p>Potongan simulasi Rp25.000 untuk perjalanan darat.</p><a href="#pemesanan" data-promo="JALAN25">Pakai JALAN25 →</a></div><div class="promo-emoji">🚆</div></article>
+        <article class="promo-card promo-green"><div><span class="promo-tag">HOTEL</span><h3>Istirahat lebih nyaman</h3><p>Promo simulasi penginapan untuk liburanmu.</p><a href="#pemesanan" data-promo="INAP10">Pakai INAP10 →</a></div><div class="promo-emoji">🏨</div></article>
+      </div>
+    </section>
+
+    <section class="section" id="rekomendasi">
+      <div class="section-heading"><div><span class="eyebrow blue">IDE LIBURAN</span><h2>Rekomendasi perjalanan</h2><p>Inspirasi destinasi dan penginapan untuk rencana berikutnya.</p></div></div>
+      <div class="recommend-grid">
+        <article class="recommend-card"><div class="recommend-image bali">🌴</div><div class="recommend-body"><span class="mini-label">DESTINASI</span><h3>Bali, Indonesia</h3><p>Pantai, kuliner, dan suasana liburan.</p><a href="#pemesanan" class="text-link">Rencanakan perjalanan →</a></div></article>
+        <article class="recommend-card"><div class="recommend-image jogja">🏯</div><div class="recommend-body"><span class="mini-label">DESTINASI</span><h3>Yogyakarta</h3><p>Wisata budaya dan kuliner khas.</p><a href="#pemesanan" class="text-link">Rencanakan perjalanan →</a></div></article>
+        <article class="recommend-card"><div class="recommend-image bandung">⛰️</div><div class="recommend-body"><span class="mini-label">PENGINAPAN</span><h3>Penginapan di Bandung</h3><p>Pilihan menginap untuk akhir pekan.</p><a href="#pemesanan" class="text-link">Cari penginapan →</a></div></article>
+        <article class="recommend-card"><div class="recommend-image lombok">🌊</div><div class="recommend-body"><span class="mini-label">DESTINASI</span><h3>Lombok</h3><p>Pemandangan alam dan pantai yang indah.</p><a href="#pemesanan" class="text-link">Rencanakan perjalanan →</a></div></article>
+      </div>
+    </section>
+
+    <section class="why-section">
+      <div class="section">
+        <span class="eyebrow blue">KENAPA HANDYFLY?</span><h2>Satu website untuk berbagai perjalanan</h2>
+        <div class="why-grid">
+          <article><span class="why-icon">✈</span><h3>Banyak pilihan</h3><p>Tersedia pesawat, kereta, bus, dan hotel dalam satu halaman.</p></article>
+          <article><span class="why-icon">Rp</span><h3>Harga jelas</h3><p>Rincian harga dan total simulasi ditampilkan sebelum pembayaran.</p></article>
+          <article><span class="why-icon">✓</span><h3>Proses mudah</h3><p>Pilih tiket, metode pembayaran, lalu lihat contoh struk.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-main"><div><a class="brand footer-brand" href="#beranda">✈ HandyFly</a><p>Satu tempat untuk merencanakan perjalananmu.</p></div><div><strong>HandyFly</strong><a href="#rekomendasi">Tentang kami</a><a href="#pemesanan">Pesan tiket</a></div><div><strong>Bantuan</strong><a href="#pemesanan">Panduan pemesanan</a><a href="#promo">Promo</a></div><div><strong>Catatan</strong><p class="footer-small">Website demo untuk latihan. Pembayaran tidak sungguhan.</p></div></div>
+    <div class="footer-bottom">© 2026 HandyFly. Semua hak dilindungi.</div>
+  </footer>
+
+  <!-- Login / Daftar -->
+  <div class="modal-backdrop hidden" id="authModal">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="modal-close" id="authClose" aria-label="Tutup">×</button>
+      <div class="modal-brand">✈ HandyFly</div><h2 id="authTitle">Masuk ke akunmu</h2><p id="authSubtitle">Masuk untuk melanjutkan pemesanan.</p>
+      <div class="auth-switch"><button id="tabLogin" class="active">Masuk</button><button id="tabRegister">Daftar</button></div>
+      <form id="authForm">
+        <label id="nameField" class="hidden">Nama lengkap<input id="authName" placeholder="Nama kamu"></label>
+        <label>Username<input id="authUsername" autocomplete="username" placeholder="Buat username" required minlength="3"></label>
+        <label>Password<input id="authPassword" type="password" autocomplete="current-password" placeholder="Minimal 4 karakter" required minlength="4"></label>
+        <p id="authMessage" class="form-message" aria-live="polite"></p>
+        <button type="submit" class="btn btn-primary full-btn" id="authSubmit">Masuk</button>
+      </form>
+      <p class="demo-note">Demo latihan: akun disimpan di browser ini, bukan server sungguhan.</p>
+    </section>
+  </div>
+
+  <!-- Pembayaran -->
+  <div class="modal-backdrop hidden" id="paymentModal">
+    <section class="modal payment-modal" role="dialog" aria-modal="true" aria-labelledby="paymentTitle">
+      <button class="modal-close" id="paymentClose" aria-label="Tutup">×</button>
+      <span class="eyebrow blue">LANGKAH TERAKHIR</span><h2 id="paymentTitle">Pembayaran</h2><p class="muted">Periksa total pembayaran, lalu pilih cara bayar.</p>
+      <div id="orderSummary" class="order-summary"></div>
+      <div class="payment-options">
+        <label class="payment-choice"><input type="radio" name="paymentMethod" value="QRIS" checked><span class="pay-icon">▦</span><span><strong>QRIS</strong><small>Scan kode QR demo</small></span></label>
+        <label class="payment-choice"><input type="radio" name="paymentMethod" value="Transfer"><span class="pay-icon">🏦</span><span><strong>E-wallet / Transfer bank</strong><small>GoPay, DANA, OVO, bank, dan lainnya</small></span></label>
+      </div>
+      <div id="qrisPanel" class="pay-panel">
+        <div class="fake-qr" aria-label="Ilustrasi QR demo"><div class="qr-pattern"></div><strong>QRIS</strong><small>DEMO — TIDAK DAPAT DIBAYAR</small></div>
+        <div><span class="muted">Nominal QRIS</span><h2 id="qrisAmount">Rp0</h2><p class="muted small">QR ini hanya ilustrasi. QRIS asli memerlukan penyedia pembayaran resmi.</p></div>
+      </div>
+      <div id="transferPanel" class="pay-panel hidden">
+        <label>Jenis pembayaran<select id="transferType"><option value="E-wallet">E-wallet</option><option value="Bank">Transfer bank</option></select></label>
+        <label id="providerLabel">Pilih e-wallet<select id="providerSelect"><option>GoPay</option><option>DANA</option><option>SeaBank</option><option>OVO</option><option>ShopeePay</option></select></label>
+        <div class="account-info"><span class="muted">Tujuan demo</span><strong id="accountNumber">HandyFly Demo</strong><small>Jangan mengirim uang sungguhan ke informasi ini.</small></div>
+      </div>
+      <p id="paymentMessage" class="form-message" aria-live="polite"></p>
+      <button id="completePayment" class="btn btn-primary full-btn">Simulasikan pembayaran</button>
+      <p class="demo-note">Tidak ada uang yang ditarik. Tombol hanya membuat contoh struk untuk tugas sekolah.</p>
+    </section>
+  </div>
+
+  <!-- Struk -->
+  <div class="modal-backdrop hidden" id="receiptModal">
+    <section class="modal receipt-modal" role="dialog" aria-modal="true" aria-labelledby="receiptTitle">
+      <button class="modal-close" id="receiptClose" aria-label="Tutup">×</button>
+      <div class="receipt-success">✓</div><h2 id="receiptTitle">Pembayaran demo berhasil!</h2><p class="muted">Ini adalah contoh struk dari website latihan HandyFly.</p>
+      <div id="receiptContent" class="receipt-paper"></div>
+      <div class="receipt-actions"><button id="printReceipt" class="btn btn-outline">Cetak struk</button><button id="closeReceipt" class="btn btn-primary">Selesai</button></div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast hidden" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
