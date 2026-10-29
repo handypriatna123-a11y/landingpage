@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HandyFly - Pembelian Tiket</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <div class="logo">
+            Handy<span>Fly</span>
+        </div>
+
+        <nav>
+            <a href="#beranda">Beranda</a>
+            <a href="#beli">Beli Tiket</a>
+            <a href="#promo">Promo</a>
+            <a href="#destinasi">Destinasi</a>
+            <a href="#tentang">Tentang</a>
+        </nav>
+
+        <div class="nav-button">
+            <button class="masuk">Masuk</button>
+            <button class="daftar">Daftar</button>
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+
+        <div class="hero-content">
+
+            <p class="welcome">
+                ✈ PERJALANAN JADI LEBIH MUDAH
+            </p>
+
+            <h1>
+                Mau Pergi<br>
+                <span>Ke Mana?</span>
+            </h1>
+
+            <p class="description">
+                Beli tiket pesawat, kereta, dan bus
+                dengan mudah dalam satu tempat.
+            </p>
+
+        </div>
+
+
+        <!-- PEMBELIAN TIKET -->
+        <div class="ticket-box" id="beli">
+
+            <h2>Beli Tiket Perjalanan</h2>
+
+            <p class="box-description">
+                Pilih transportasi dan lengkapi data perjalananmu.
+            </p>
+
+
+            <!-- PILIH TRANSPORTASI -->
+            <div class="transport-menu">
+                <label id="labelDari">DARI</label>
+                <label id="labelKe">KE</label>
+
+    <button class="transport active" data-type="Pesawat">
+        ✈
+        <span>Pesawat</span>
+    </button>
+
+    <button class="transport" data-type="Kereta">
+        🚆
+        <span>Kereta</span>
+    </button>
+
+    <button class="transport" data-type="Bus">
+        🚌
+        <span>Bus</span>
+    </button>
+
+    <button class="transport" data-type="Hotel">
+        🏨
+        <span>Hotel</span>
+    </button>
+
+</div>
+
+
+            <!-- FORM -->
+            <form id="ticketForm">
+
+
+                <div class="form-container">
+
+                    <div class="form-group">
+                        <label>DARI</label>
+
+                        <input
+                            type="text"
+                            id="dari"
+                            placeholder="Kota asal"
+                        >
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="swap"
+                        id="swap"
+                    >
+                        ⇄
+                    </button>
+
+
+                    <div class="form-group">
+                        <label>KE</label>
+
+                        <input
+                            type="text"
+                            id="ke"
+                            placeholder="Kota tujuan"
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>TANGGAL</label>
+
+                        <input
+                            type="date"
+                            id="tanggal"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>PENUMPANG</label>
+
+                        <select id="penumpang">
+
+                            <option value="1">
+                                1 Penumpang
+                            </option>
+
+                            <option value="2">
+                                2 Penumpang
+                            </option>
+
+                            <option value="3">
+                                3 Penumpang
+                            </option>
+
+                            <option value="4">
+                                4 Penumpang
+                            </option>
+
+                            <option value="5">
+                                5 Penumpang
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="beli-button"
+                    >
+                        Beli Tiket
+                    </button>
+
+                <!-- PILIHAN TIKET -->
+<div class="pilihan-tiket">
+
+    <h3>Pilih Tiket</h3>
+    <p class="subjudul">
+        Pilih kelas tiket yang sesuai dengan kebutuhanmu
+    </p>
+
+    <div class="tiket-container">
+
+        
+<!-- METODE PEMBAYARAN -->
+<div class="pembayaran">
+    <h3>Metode Pembayaran</h3>
+    <p class="pembayaran-subjudul">
+        Pilih metode pembayaran yang kamu inginkan.
+    </p>
+
+    <div class="metode-container">
+        <label class="metode-card dipilih" for="qris">
+            <input
+                type="radio"
+                name="metodePembayaran"
+                id="qris"
+                value="QRIS"
+                checked
+            >
+            <span class="metode-icon">▦</span>
+            <span>
+                <strong>QRIS</strong>
+                <small>Scan kode QR</small>
+            </span>
+        </label>
+
+        <label class="metode-card" for="transfer">
+            <input
+                type="radio"
+                name="metodePembayaran"
+                id="transfer"
+                value="Transfer Bank"
+            >
+            <span class="metode-icon">🏦</span>
+            <span>
+                <strong>Transfer Bank</strong>
+                <small>Transfer melalui bank</small>
+            </span>
+        </label>
+    </div>
+
+    <!-- INFORMASI QRIS -->
+    <div class="detail-pembayaran" id="detailQris">
+        <h4>Pembayaran dengan QRIS</h4>
+        <div class="qris-placeholder">
+            <span>QRIS</span>
+            <p>Kode QR pembayaran akan ditampilkan di sini.</p>
+        </div>
+        <p class="catatan-pembayaran">
+            QRIS aktif setelah website terhubung
+            dengan penyedia pembayaran.
+        </p>
+    </div>
+
+    <!-- INFORMASI TRANSFER -->
+    <div class="detail-pembayaran" id="detailTransfer" hidden>
+        <h4>Pembayaran melalui Transfer Bank</h4>
+
+        <div class="rekening-info">
+            <p>Bank tujuan</p>
+            <strong>Informasi bank belum diatur</strong>
+
+            <p>Nomor rekening</p>
+            <strong>Tambahkan nomor rekening resmi</strong>
+
+            <p>Nama pemilik rekening</p>
+            <strong>Tambahkan nama pemilik rekening</strong>
+        </div>
+
+        <p class="catatan-pembayaran">
+            Lengkapi informasi rekening resmi sebelum
+            website digunakan untuk transaksi nyata.
+        </p>
+    </div>
+</div>
+
+
+        <!-- BASIC -->
+        <div class="tiket-card" data-kelas="Basic">
+
+            <img
+                src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=700&q=80"
+                alt="Pesawat">
+
+            <div class="tiket-info">
+                <h4>Basic</h4>
+
+                <p>✓ Tempat duduk standar</p>
+                <p>✓ Bagasi standar</p>
+
+                <strong class="harga-tiket">
+                    Rp 750.000
+                </strong>
+            </div>
+
+        </div>
+
+
+        <!-- MEDIUM -->
+        <div class="tiket-card" data-kelas="Medium">
+
+            <img
+                src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=700&q=80"
+                alt="Kereta">
+
+            <div class="tiket-info">
+                <h4>Medium</h4>
+
+                <p>✓ Kursi lebih nyaman</p>
+                <p>✓ Bagasi lebih besar</p>
+
+                <strong class="harga-tiket">
+                    Rp 950.000
+                </strong>
+            </div>
+
+        </div>
+
+
+        <!-- ELITE -->
+        <div class="tiket-card" data-kelas="Elite">
+
+            <img
+                src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=700&q=80"
+                alt="Bus">
+
+            <div class="tiket-info">
+                <h4>Elite</h4>
+
+                <p>✓ Kursi premium</p>
+                <p>✓ Bagasi tambahan</p>
+
+                <strong class="harga-tiket">
+                    Rp 1.200.000
+                </strong>
+            </div>
+
+        </div>
+
+
+        <!-- VIP -->
+        <div class="tiket-card" data-kelas="VIP">
+
+            <img
+                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=700&q=80"
+                alt="Hotel VIP">
+
+            <div class="tiket-info">
+                <h4>VIP</h4>
+
+                <p>✓ Fasilitas premium</p>
+                <p>✓ Layanan khusus</p>
+
+                <strong class="harga-tiket">
+                    Rp 1.500.000
+                </strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+                 
+
+
+                </div>
+
+            </form>
+
+
+            <!-- HASIL PEMBELIAN -->
+            <div id="hasil"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROMO -->
+    <section class="promo-section" id="promo">
+
+        <div class="section-header">
+
+            <div>
+                <p>PROMO PERJALANAN</p>
+
+                <h2>Promo Untuk Perjalananmu</h2>
+            </div>
+
+            <a href="#">Lihat Semua →</a>
+
+        </div>
+
+
+        <div class="promo-container">
+
+            <div class="promo-card">
+
+                <div class="promo-icon">
+                    ✈
+                </div>
+
+                <h3>
+                    Promo Pesawat
+                </h3>
+
+                <p>
+                    Dapatkan harga spesial untuk
+                    perjalanan menggunakan pesawat.
+                </p>
+
+                <button>
+                    Beli Sekarang
+                </button>
+
+            </div>
+
+
+            <div class="promo-card">
+
+                <div class="promo-icon">
+                    🚆
+                </div>
+
+                <h3>
+                    Promo Kereta
+                </h3>
+
+                <p>
+                    Nikmati perjalanan kereta dengan
+                    harga yang lebih hemat.
+                </p>
+
+                <button>
+                    Beli Sekarang
+                </button>
+
+            </div>
+
+
+            <div class="promo-card">
+
+                <div class="promo-icon">
+                    🚌
+                </div>
+
+                <h3>
+                    Promo Bus
+                </h3>
+
+                <p>
+                    Pilih tiket bus untuk perjalanan
+                    antarkota dengan mudah.
+                </p>
+
+                <button>
+                    Beli Sekarang
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DESTINASI -->
+    <section class="destinasi" id="destinasi">
+
+        <div class="section-header">
+
+            <div>
+                <p>DESTINASI</p>
+
+                <h2>Perjalanan Populer</h2>
+            </div>
+
+        </div>
+
+
+        <div class="destination-container">
+
+            <div class="destination-card bali">
+
+                <div>
+                    <h3>Bali</h3>
+                    <p>Destinasi liburan</p>
+                </div>
+
+            </div>
+
+
+            <div class="destination-card jakarta">
+
+                <div>
+                    <h3>Jakarta</h3>
+                    <p>Kota metropolitan</p>
+                </div>
+
+            </div>
+
+
+            <div class="destination-card jogja">
+
+                <div>
+                    <h3>Yogyakarta</h3>
+                    <p>Kota wisata</p>
+                </div>
+
+            </div>
+
+
+            <div class="destination-card bandung">
+
+                <div>
+                    <h3>Bandung</h3>
+                    <p>Kota kembang</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- KEUNGGULAN -->
+    <section class="keunggulan" id="tentang">
+
+        <div class="keunggulan-title">
+
+            <p>KENAPA HandyFLY?</p>
+
+            <h2>
+                Satu Website Untuk
+                Berbagai Perjalanan
+            </h2>
+
+        </div>
+
+
+        <div class="keunggulan-container">
+
+            <div class="keunggulan-card">
+
+                <div class="icon">
+                    ✈
+                </div>
+
+                <h3>
+                    Banyak Pilihan
+                </h3>
+
+                <p>
+                    Tersedia tiket pesawat,
+                    kereta, dan bus.
+                </p>
+
+            </div>
+
+
+            <div class="keunggulan-card">
+
+                <div class="icon">
+                    Rp
+                </div>
+
+                <h3>
+                    Harga Terjangkau
+                </h3>
+
+                <p>
+                    Pilih tiket sesuai kebutuhan
+                    dan budget perjalananmu.
+                </p>
+
+            </div>
+
+
+            <div class="keunggulan-card">
+
+                <div class="icon">
+                    ✓
+                </div>
+
+                <h3>
+                    Pembelian Mudah
+                </h3>
+
+                <p>
+                    Proses pembelian tiket
+                    sederhana dan cepat.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+
+            Handy<span>Fly</span>
+
+            <p>
+                Satu tempat untuk membeli
+                tiket perjalananmu.
+            </p>
+
+        </div>
+
+
+        <div class="footer-menu">
+
+            <div>
+
+                <h4>HandyFly</h4>
+
+                <a href="#">
+                    Tentang Kami
+                </a>
+
+                <a href="#">
+                    Kontak
+                </a>
+
+                <a href="#">
+                    Karir
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Bantuan</h4>
+
+                <a href="#">
+                    Pusat Bantuan
+                </a>
+
+                <a href="#">
+                    Syarat & Ketentuan
+                </a>
+
+                <a href="#">
+                    Kebijakan Privasi
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>Ikuti Kami</h4>
+
+                <a href="#">
+                    Instagram
+                </a>
+
+                <a href="#">
+                    Facebook
+                </a>
+
+                <a href="#">
+                    YouTube
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <div class="copyright">
+
+        © 2026 HandyFly. Semua hak dilindungi.
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
